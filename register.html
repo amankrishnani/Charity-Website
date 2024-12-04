@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }                   /*for body*/  
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }                                    /*for container*/
+
+        h1 {
+            text-align: center;
+        }                             /*for heading*/
+        form {
+            display: grid;
+            grid-gap: 10px;
+        }                                 /*for form*/
+        label {
+            font-weight: bold;
+        }                                    /*for content of label text*/
+        input[type="text"],
+        input[type="tel"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }                                    /*for message text*/
+        textarea {
+            resize: vertical;
+        }                                /*for size of message box*/
+        p {
+            margin: 5px 0;
+        }
+        button[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }                                   /*on submit button*/
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }                                /*for button hover*/
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }                                    /*the validation message print in red colour*/
+
+        /* Added styles for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+    <h1>Registration Form</h1>
+    <form id="registration-form" action="underconstruction.html" method="post">
+        <div>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name">
+            <span id="first-name-error" class="error-message"></span>
+        </div>                                           <!--for firstname-->
+        <div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name">
+            <span id="last-name-error" class="error-message"></span>
+        </div>                                                  <!--for lastname-->
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+        </div>                                                          <!--for address-->
+        <div>
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" name="phone-number">
+            <span id="phone-number-error" class="error-message"></span>
+        </div>                                  <!--for phone number-->
+        <div>
+            <p>Gender:</p>
+            <label>
+                <input type="radio" name="gender" value="male"> Male
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female"> Female
+            </label>
+            <label>
+                <input type="radio" name="gender" value="other"> Other
+            </label>
+            <span id="gender-error" class="error-message"></span>
+        </div>              <!--for gender-->
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+        </div>                      <!--for message-->
+        <div>
+            <button type="submit" id="submit-button">Send</button>
+        </div>              <!--for button-->
+    </form>
+
+    <!-- Table to display information -->
+    <table id="info-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Donated Amount</th>
+                <th>To</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Donator 1</td>
+            <td>800£</td>
+            <td><a href="index.html">Serving Smiles</a></td>
+            <td>For more information <a href="anonymus.html">Click here</a></td>
+        </tr>
+        <tr>
+            <td>Donator 2</td>
+            <td>650£</td>
+            <td><a href="index.html">Serving Smiles</a></td>
+            <td>For more information <a href="anonymus.html">Click here</a></td>
+        </tr>
+        <tr>
+            <td>Donator 3</td>
+            <td>600£</td>
+            <td><a href="index.html">Serving Smiles</a></td>
+            <td>For more information <a href="anonymus.html">Click here</a></td>
+        </tr>
+        <tr>
+            <td>Donator 4</td>
+            <td>400£</td>
+            <td><a href="index.html">Serving Smiles</a></td>
+            <td>For more information <a href="anonymus.html">Click here</a></td>
+        </tr>
+        <tr>
+            <td>Donator 5</td>
+            <td>350£</td>
+            <td><a href="index.html">Serving Smiles</a></td>
+            <td>For more information <a href="anonymus.html">Click here</a></td>
+        </tr>
+        <tbody>
+          Our latest 5 Donators  <!-- Data will be dynamically populated here -->
+        </tbody>
+    </table>
+    <p>As per our privacy policy we are not allowed to display the customers private data. If you want more information
+        click on the Link in the description box.
+    </p>
+</div>
+
+<script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        var firstName = document.getElementById('first-name').value;
+        var lastName = document.getElementById('last-name').value;
+        var phoneNumber = document.getElementById('phone-number').value;
+                     /* for mandatory enter the value */
+        var firstNameError = document.getElementById('first-name-error');
+        var lastNameError = document.getElementById('last-name-error');
+        var phoneNumberError = document.getElementById('phone-number-error');
+                            /* for not filling the field */
+        if (firstName.trim() === '') {
+            firstNameError.textContent = 'First name is required';
+            event.preventDefault();
+        } else {
+            firstNameError.textContent = '';
+        }
+                    /* write content or else getting the error for mandatory to fill the field */
+        if (lastName.trim() === '') {
+            lastNameError.textContent = 'Last name is required';
+            event.preventDefault();
+        } else {
+            lastNameError.textContent = '';
+        }
+                /* write content or else getting the error for mandatory to fill the field */
+        if (phoneNumber.trim() === '') {
+            phoneNumberError.textContent = 'Phone number is required';
+            event.preventDefault();
+        } else {
+            phoneNumberError.textContent = '';
+        }
+
+                     // Create table row and populate it with the form data
+        if (!event.defaultPrevented) {
+            var tableRow = document.createElement('tr');
+            var tableData1 = document.createElement('td');
+            var tableData2 = document.createElement('td');
+            var tableData3 = document.createElement('td');
+            var tableData4 = document.createElement('td');
+
+            tableData1.textContent = firstName + ' ' + lastName;
+            tableData2.textContent = '';                    // You can add functionality to fill this in
+            tableData3.textContent = '';                      // You can add functionality to fill this in
+            tableData4.textContent = '';                    // You can add functionality to fill this in
+
+            tableRow.appendChild(tableData1);
+            tableRow.appendChild(tableData2);
+            tableRow.appendChild(tableData3);
+            tableRow.appendChild(tableData4);
+
+            document.querySelector('#info-table tbody').appendChild(tableRow);
+
+            // Reset the form
+            this.reset();
+        }
+    });
+</script>
+</body>
+</html>

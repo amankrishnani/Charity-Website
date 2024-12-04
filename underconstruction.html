@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"> <!--Main html starts here-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Construction</title>
+  <style> /*Embedded CSS for styling*/
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .construction-image {
+      width: 130%;
+      height: auto;
+      max-width: 50%;
+      max-height: 80%;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+
+    .back-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="Under construction.png" alt="Under Construction" class="construction-image"> <!--Calling image-->
+
+    <button class="back-button" onclick="goBack()">Back</button> <!--Back button-->
+  </div>
+
+  <script>
+    function goBack() {
+      if (window.history.length > 1) { // Check if there's a previous page in the history
+        window.history.back(); // JavaScript function to go back to the previous page
+      } else {
+        alert("There's no previous page to go back to."); // Show alert if there's no previous page
+      }
+    }
+  </script>
+</body>
+</html>
